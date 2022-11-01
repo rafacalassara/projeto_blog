@@ -122,3 +122,8 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+arquivos_originais/
+chave_ssh.ppk
+projetoblog.txt
+Blog-diagram.png
