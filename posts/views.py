@@ -86,7 +86,7 @@ class PostDetalhes(View):
         
         comentario = form.save(commit=False)
 
-        if not request.user.is_authenticated:
+        if request.user.is_authenticated:
             comentario.usuario_comentario = request.user
 
         comentario.post_comentario = self.contexto['post']
