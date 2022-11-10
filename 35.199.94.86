@@ -4,9 +4,9 @@ server {
 
 	listen 443 ssl http2;
 	listen [::]:443 ssl http2;
-	ssl_certificate /etc/letsencrypt/live/cursopython.otaviomiranda.com.br/fullchain.pem; # managed by Certbot
-	ssl_certificate_key /etc/letsencrypt/live/cursopython.otaviomiranda.com.br/privkey.pem; # managed by Certbot
-	ssl_trusted_certificate /etc/letsencrypt/live/cursopython.otaviomiranda.com.br/chain.pem;
+	ssl_certificate /etc/letsencrypt/live/35.199.94.86/fullchain.pem; # managed by Certbot
+	ssl_certificate_key /etc/letsencrypt/live/35.199.94.86/privkey.pem; # managed by Certbot
+	ssl_trusted_certificate /etc/letsencrypt/live/35.199.94.86/chain.pem;
 
 	# Improve HTTPS performance with session resumption
 	ssl_session_cache shared:SSL:10m;
@@ -35,20 +35,20 @@ server {
 	# Add index.php to the list if you are using PHP
 	index index.html index.htm index.nginx-debian.html index.php;
 
-	server_name cursopython.otaviomiranda.com.br;
+	server_name 35.199.94.86;
 
 	location = /favicon.ico { access_log off; log_not_found off; }
 	location /static/ {
-			root /home/luizotavio/agenda;
+			root /home/rafaelcalassara/blog;
 	}
 
 	location /media {
-			alias /home/luizotavio/agenda/media/;
+			alias /home/rafaelcalassara/blog/media/;
 	}
 
 	location / {
 			include proxy_params;
-			proxy_pass http://unix:/run/gunicorn.sock;
+			proxy_pass http://unix:/run/gunicorn_blog.sock;
 	}
 
 	# deny access to .htaccess files, if Apache's document root
@@ -85,8 +85,8 @@ server {
 		image/svg+xml;
 
   access_log off;
-	#access_log  /var/log/nginx/cursopython.otaviomiranda.com.br-access.log;
-  error_log   /var/log/nginx/cursopython.otaviomiranda.com.br-error.log;
+	#access_log  /var/log/nginx/35.199.94.86-access.log;
+  error_log   /var/log/nginx/35.199.94.86-error.log;
 
 	include /etc/nginx/common/protect.conf;
 }

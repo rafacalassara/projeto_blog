@@ -1,7 +1,7 @@
 sudo openssl dhparam -out /etc/ssl/certs/dhparam.pem 2048
 sudo apt-get install certbot
 sudo service nginx stop
-sudo certbot certonly --standalone -d cursopython.otaviomiranda.com.br
+sudo certbot certonly --standalone -d 35.199.94.86
 sudo service nginx start
 
 ###### settings.py
