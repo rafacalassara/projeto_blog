@@ -40,6 +40,9 @@ ExecStart=/home/rafaelcalassara/blog/venv/bin/gunicorn \
 WantedBy=multi-user.target
 ##################################################
 
+# movendo service para pasta correta
+sudo mv blogdjango /etc/nginx/enabled-sites/blogdjango
+
 # Ativando
 sudo systemctl start gunicorn_blog.socket
 sudo systemctl enable gunicorn_blog.socket
@@ -52,10 +55,6 @@ curl --unix-socket /run/gunicorn_blog.sock localhost
 sudo systemctl status gunicorn_blog
 ##################################################
 
-sudo nano /etc/nginx/sites-enabled/sitedjango
-##################################################
-
 sudo rm /etc/nginx/sites-enabled/default
-sudo systemctl restart nginx
-sudo systemctl restart gunicorn_blog
+sudo systemctl restart nginx && sudo systemctl restart gunicorn_blog
 ##################################################
