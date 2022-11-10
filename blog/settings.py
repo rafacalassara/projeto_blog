@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-etgxqd1p9bcg&ka0zpoka0kn=&x!hw3)*j!w7kog$a&l6749&u
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['35.199.94.86']
+ALLOWED_HOSTS = ['35.198.7.153']
 
 
 # Application definition
@@ -139,10 +139,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 INSTALLED_APPS += ('django_summernote', )
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-SECURE_SSL_REDIRECT = True
-SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_SECURE = True
 
 try:
     from .local_settings import *

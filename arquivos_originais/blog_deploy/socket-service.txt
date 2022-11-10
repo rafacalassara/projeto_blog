@@ -41,7 +41,7 @@ WantedBy=multi-user.target
 ##################################################
 
 # movendo service para pasta correta
-sudo mv blogdjango /etc/nginx/enabled-sites/blogdjango
+sudo mv blogdjango /etc/nginx/sites-enabled/blogdjango
 
 # Ativando
 sudo systemctl start gunicorn_blog.socket
