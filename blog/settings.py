@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.humanize',
+    'crispy_forms',
+    'axes',
 ]
 
 MIDDLEWARE = [
@@ -52,6 +54,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'axes.middleware.AxesMiddleware',
 ]
 
 ROOT_URLCONF = 'blog.urls'
@@ -139,6 +142,12 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 INSTALLED_APPS += ('django_summernote', )
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+AUTHENTICATION_BACKENDS = [
+    'axes.backends.AxesBackend',
+    'django.contrib.auth.backends.ModelBackend',
+]
 
 try:
     from .local_settings import *
